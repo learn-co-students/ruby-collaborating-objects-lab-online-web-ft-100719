@@ -4,7 +4,7 @@ class Song
 
   def initialize(name, artist=nil)
     @name = name
-    @artist = artist
+  #  @artist = artist
     @@all << self
   end
 
@@ -12,9 +12,14 @@ class Song
     @@all
   end
 
-  def artist_name
-     self.artist.name
- end
+  def artist_name=(name)
+     if (self.artist.nil?)
+       self.artist = Artist.new(name)
+     else
+       self.artist.name = name
+     end
+   end
+
 
   def artists
     songs.map do |song|
