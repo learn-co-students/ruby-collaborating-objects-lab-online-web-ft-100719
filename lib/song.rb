@@ -16,7 +16,7 @@ class Song
     @artist ? @artist.name : NIL
   end
   
-  def self.artist_name=(name)
+  def artist_name=(name)
     @artist = Artist.find_or_create_by_name(name)
   end
   
@@ -25,7 +25,6 @@ class Song
     song_name = song_details[1]
     new_song = self.new(song_name)
     new_song.artist = Artist.find_or_create_by_name(song_details[0])
-    artist_name= song_details[0]
     new_song
   end
   
