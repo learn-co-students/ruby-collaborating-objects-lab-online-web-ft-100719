@@ -28,8 +28,10 @@ class Artist
     end
   
     def add_song(song)
-      @songs << song
+        @songs << song
+        song.artist = self
     end
+    
   
     def print_songs
       songs.each { |song| puts song.name }
@@ -40,7 +42,9 @@ class Artist
     end
   
     def songs
-        @songs
+        Song.all.select do |song|
+            song.artist == self
+        end
     end
 end
    
