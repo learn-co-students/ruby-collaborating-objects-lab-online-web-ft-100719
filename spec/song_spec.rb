@@ -28,14 +28,7 @@ describe 'Song' do
     end
   end
 
-  describe '.all' do
-    it 'returns all existing Song instances' do
-      song = Song.new('Man in the Mirror')
-      expect(Song.all).to eq([song])
-      purple_rain = Song.new('Purple Rain')
-      expect(Song.all).to eq([song, purple_rain])
-    end
-  end
+  
 
   describe '.new_by_filename' do
     it 'creates a new instance of a song from the file that\'s passed' do
